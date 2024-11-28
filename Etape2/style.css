@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  text-align: center;
+  justify-content: center;
+  margin-top: 300px;
+}
+
+.input-box {
+  width: 20%;
+  height: 30px;
+}
+
+.btn {
+  width: 100px;
+  height: 30px;
+  background-color: bisque;
+  font-weight: 22px;
+  border: none;
+  cursor: pointer;
+}
