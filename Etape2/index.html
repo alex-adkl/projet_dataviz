@@ -3,6 +3,69 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&display=swap" rel="stylesheet">
+  </head>
+  <body>
+
+    <header class="logo-header">
+      <h1><span class="logo">WEATHER</span><span class="cast">CAST</span></h1>
+      <div class="icons">
+        <img src="images/header-thunder.svg" alt="thunder" />
+        <img src="images/header-sun.svg" alt="sun" />
+        <img src="images/header-rain.svg" alt="rain" />
+        <img src="images/header-cloud.svg" alt="cloud" />
+        <img src="images/header-snow.svg" alt="snow" />
+      </div>
+    </header>
+
+    <div class="container">
+      
+      <div class="input-container">
+        <input type="text" id="inputbox" placeholder="Enter your city" />
+        <button id="btn">Search</button>
+      </div>
+      <div id="cityname"></div>
+      
+      <div class="info-container">
+        <div id="weather">
+          <h3>Weather</h3>
+          <img src="icons/sunny.svg" alt="sun" class="weather-icon" />
+          <div class="value"></div>
+        </div>
+        <div id="temperature">
+          <h3>Temperature</h3>
+          <img src="icons/thermometer-colder.svg" alt="sun" class="temperature-icon" />
+          <div class="value"></div>
+        </div>
+        <div id="wind">
+          <h3>Wind speed</h3>
+          <img src="icons/wind.svg" alt="wind" class="wind-icon" />
+          <div class="value"></div>
+        </div>
+        <div id="humidity">
+          <h3>Humidity</h3>
+          <img src="icons/humidity2.svg" alt="drop" class="humidity-icon" />
+          <div class="value"></div>
+        </div>
+      </div>
+
+      <div id="date"></div>
+    </div>
+  </body>
+</html>
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Test</title>
     <link rel="stylesheet" href="style.css" />
     <script defer src="script.js"></script>
@@ -20,4 +83,4 @@
       <img src="" alt="" id="icon" />
     </div>
   </body>
-</html>
+</html> -->

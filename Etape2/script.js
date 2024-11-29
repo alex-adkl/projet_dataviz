@@ -23,19 +23,19 @@ const fetchWeather = async () => {
   let response = await data.json();
   console.log(response);
 
-  nameElement.innerText = `${response["location"]["name"]}`;
+  nameElement.innerText = `Today in ${response["location"]["name"]}`;
   cityname.appendChild(nameElement);
 
   weatherElement.innerText = `${response["current"]["condition"]["text"]}`;
   weather.appendChild(weatherElement);
 
-  temperatureElement.innerText = `${response["current"]["temp_c"]}`;
+  temperatureElement.innerText = `${response["current"]["temp_c"]} °C`;
   temperature.appendChild(temperatureElement);
 
-  windElement.innerText = `${response["current"]["wind_kph"]}`;
+  windElement.innerText = `${response["current"]["wind_kph"]} km/h`;
   wind.appendChild(windElement);
 
-  humidityElement.innerText = `Humidity ${response["current"]["humidity"]} %`;
+  humidityElement.innerText = `${response["current"]["humidity"]} %`;
   humidity.appendChild(humidityElement);
 
   console.log(`${response["current"]["condition"]["text"]}`);
