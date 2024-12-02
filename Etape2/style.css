@@ -357,7 +357,7 @@ body {
   margin: 0;
   font-family: "Parkinsans", sans-serif;
   background: url('images/sunny.jpg') no-repeat center center/cover;
-  height: 100vh; /* Assure que l'image' occupe toute la hauteur */
+  height: 100vh; /* pour que l'image occupe toute la hauteur */
   color: #333;
 }
 
@@ -459,11 +459,6 @@ button#btn:hover {
   height: 120px;
   display: block;
   margin: 0 auto 10px;
-  animation-play-state: paused; /* Animation stoppée par défaut */
-}
-
-.weather-icon:hover {
-  animation-play-state: running; /* L'animation se joue au survol */
 }
 
 #temperature {
@@ -482,30 +477,3 @@ img#icon {
   margin-top: 20px;
   width: 80px;
 }
-
-
-/* * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-.container {
-  text-align: center;
-  justify-content: center;
-  margin-top: 300px;
-}
-
-.input-box {
-  width: 20%;
-  height: 30px;
-}
-
-.btn {
-  width: 100px;
-  height: 30px;
-  background-color: bisque;
-  font-weight: 22px;
-  border: none;
-  cursor: pointer;
-} */
