@@ -6,12 +6,14 @@
     <title>Weather App</title>
     <link rel="stylesheet" href="style.css" />
     <script defer src="script.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-
     <header class="logo-header">
       <h1><span class="logo">WEATHER</span><span class="cast">CAST</span></h1>
       <div class="icons">
@@ -24,7 +26,6 @@
     </header>
 
     <div class="container">
-      
       <div class="input-container">
         <input type="text" id="inputbox" placeholder="Enter your city" />
         <button id="btn">Search</button>
@@ -34,12 +35,16 @@
       <div class="info-container">
         <div id="weather">
           <h3>Weather</h3>
-          <img src="icons/sunny.svg" alt="sun" class="weather-icon" />
+          <div class="weather-icon" id="weatherIcon"></div>
           <div class="value"></div>
         </div>
         <div id="temperature">
           <h3>Temperature</h3>
-          <img src="icons/thermometer-colder.svg" alt="sun" class="temperature-icon" />
+          <img
+            src="icons/thermometer-colder.svg"
+            alt="sun"
+            class="temperature-icon"
+          />
           <div class="value"></div>
         </div>
         <div id="wind">
@@ -58,4 +63,3 @@
     </div>
   </body>
 </html>
-
