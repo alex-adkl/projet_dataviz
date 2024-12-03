@@ -8,7 +8,7 @@
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
 
- html {
+html {
   line-height: 1.15; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
 }
@@ -174,7 +174,8 @@ textarea {
  */
 
 button,
-input { /* 1 */
+input {
+  /* 1 */
   overflow: visible;
 }
 
@@ -184,7 +185,8 @@ input { /* 1 */
  */
 
 button,
-select { /* 1 */
+select {
+  /* 1 */
   text-transform: none;
 }
 
@@ -348,26 +350,26 @@ template {
   display: none;
 }
 
-
-
-
-
-
 body {
   margin: 0;
   font-family: "Parkinsans", sans-serif;
-  background: url('images/sunny.jpg') no-repeat center center/cover;
-  height: 100vh; /* pour que l'image occupe toute la hauteur */
+  background: url() no-repeat center center/cover;
+  /* background: no-repeat center center/cover; */
+  height: 100vh; /* pour que l'image occupe toute la hauteur  */
   color: #333;
 }
 
+/* #background {
+  background: no-repeat center center/cover;
+  height: 100vh;
+} */
 
 .logo-header {
   display: flex;
   align-items: center;
   justify-content: flex-start;
   padding: 10px 20px;
-  background-color: transparent; 
+  background-color: transparent;
 }
 
 .logo-header h1 {
@@ -379,11 +381,11 @@ body {
 }
 
 .logo-header .weather {
-  color: #1E3A8A; /* Bleu foncé */
+  color: #1e3a8a; /* Bleu foncé */
 }
 
 .logo-header .cast {
-  color: #1D4ED8; /* Bleu plus clair */
+  color: #1d4ed8; /* Bleu plus clair */
 }
 
 .logo-header .icons {
@@ -393,7 +395,7 @@ body {
 }
 
 .logo-header .icons img {
-  width: 30px; 
+  width: 30px;
   height: 30px;
 }
 
@@ -413,10 +415,10 @@ input#inputbox {
 button#btn {
   padding: 10px 15px;
   font-size: 16px;
-  background-color: #007BFF;
-  border-color: #007BFF;
+  background-color: #007bff;
+  border-color: #007bff;
   color: white;
-  border:#007BFF;
+  border: #007bff;
   border-radius: 5px;
   cursor: pointer;
 }
@@ -429,7 +431,7 @@ button#btn:hover {
   font-size: 28px;
   font-weight: bold;
   margin-top: 20px;
-  color: #1E40AF;
+  color: #1e40af;
 }
 
 #weather,
@@ -447,30 +449,29 @@ button#btn:hover {
 
 #weather {
   text-align: center;
-  color: #FFC107; 
+  color: #ffc107;
 }
 
 .weather-icon,
 .temperature-icon,
 .wind-icon,
-.humidity-icon 
-{
-  width: 120px; 
+.humidity-icon {
+  width: 120px;
   height: 120px;
   display: block;
   margin: 0 auto 10px;
 }
 
 #temperature {
-  color: #0D6EFD;
+  color: #0d6efd;
 }
 
 #wind {
-  color: #17A2B8;
+  color: #17a2b8;
 }
 
 #humidity {
-  color: #6C757D;
+  color: #6c757d;
 }
 
 img#icon {

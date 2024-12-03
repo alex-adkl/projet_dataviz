@@ -6,6 +6,7 @@ const temperature = document.getElementById("temperature");
 const wind = document.getElementById("wind");
 const humidity = document.getElementById("humidity");
 const weatherIcon = document.getElementById("weatherIcon");
+const background = document.getElementById("background");
 
 const nameElement = document.createElement("div"); //on crée des nouvelles div à l'intérieur des éléments de la page
 const dateElement = document.createElement("div");
@@ -14,6 +15,7 @@ const temperatureElement = document.createElement("div");
 const windElement = document.createElement("div");
 const humidityElement = document.createElement("div");
 const weatherIconElement = document.createElement("div");
+const backgroundElement = document.createElement("div");
 // On utilise var  pour pouvoir accéder à response.
 var response;
 
@@ -67,8 +69,11 @@ const fetchIcons = async () => {
     .forEach((matchedLine) => {
       weatherIconElement.innerHTML = `<img src="${matchedLine.image}" alt="${matchedLine.day}">`;
       weatherIcon.appendChild(weatherIconElement);
+      backgroundElement.innerHTML = `<img src="${matchedLine.background}" alt="${matchedLine.day}">`;
+      background.appendChild(backgroundElement);
     });
   console.log(weatherIconElement.innerHTML);
+  console.log(backgroundElement.innerHTMLL);
 
   // if - else
   // const matchedLine = responseJson.find((line) =>
@@ -110,3 +115,8 @@ const fetchIcons = async () => {
 // }
 
 button.addEventListener("click", fetchWeather); //on ajoute une addEventListener au bouton : au click, on lance la fonction fetchWeather
+
+// function changeImage(category) {
+//   document.getElementById("div-bg").style.backgroundImage =
+//     'url("https://source.unsplash.com/320x240/?' + category + '")';
+// }
