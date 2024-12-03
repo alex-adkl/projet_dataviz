@@ -11,8 +11,8 @@ const background = document.getElementById("background");
 const temperatureIcon = document.getElementById("temperatureIcon");
 const forecastWeather = document.getElementById("forecastWeather");
 const forecastWeatherIcon = document.getElementById("forecastWeatherIcon");
-const forecastTemperatureMin = document.getElementById("ForecastTemperatureMin");
-const forecastTemperatureMax = document.getElementById("ForecastTemperatureMax");
+const forecastTemperatureMin = document.getElementById("forecastTemperatureMin");
+const forecastTemperatureMax = document.getElementById("forecastTemperatureMax");
 
 const nameElement = document.createElement("div"); //on crée des nouvelles div à l'intérieur des éléments de la page
 const dateElement = document.createElement("div");
@@ -171,4 +171,4 @@ function fetchAll() {
   fetchTempForecast()
 }
 
-button.addEventListener("click", fetchAll); //on ajoute une addEventListener au bouton : au click, on lance la fonction fetchWeather
+button.addEventListener("click", fetchAll); //on ajoute une addEventListener au bouton : au click, on lance la fonction fetchAll
