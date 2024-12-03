@@ -486,3 +486,69 @@ img#icon {
   margin-top: 20px;
   width: 80px;
 }
+
+#forecastContainer {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 30px;
+  width: 90%;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.forecast-header h3 {
+  font-size: 24px;
+  color: #1e40af;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 10px;
+
+}
+#forecast-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+#forecast-card > div {
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  flex: 1;
+}
+
+#forecast-card img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+#forecastWeather .forecastValue,
+#ForecastTemperatureMin .value,
+.forecastTemperatureMax .forecastValue {
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+#forecastWeather .forecastValue {
+  color: #f59e0b; /* Couleur pour "Sunny" ou météo */
+}
+
+#ForecastTemperatureMin .value {
+  color: #1d4ed8; /* Couleur pour Température Min */
+}
+
+.forecastTemperatureMax .forecastValue {
+  color: #dc2626; /* Couleur pour Température Max */
+}
