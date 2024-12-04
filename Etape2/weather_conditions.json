@@ -7,6 +7,16 @@
     "image": "icons/sunny.svg",
     "background": "images/sunny.jpg"
   },
+
+  {
+    "code": 1002,
+    "day": "Clear",
+    "night": "Clear",
+    "icon": 114,
+    "image": "icons/sunny.svg",
+    "background": "images/sunny.jpg"
+  },
+
   {
     "code": 1003,
     "day": "Partly cloudy",

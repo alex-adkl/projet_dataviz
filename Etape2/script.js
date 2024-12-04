@@ -10,12 +10,15 @@ const background = document.getElementById("background");
 const temperatureIcon = document.getElementById("temperatureIcon");
 const forecastWeather = document.getElementById("forecastWeather");
 const forecastWeatherIcon = document.getElementById("forecastWeatherIcon");
-const forecastTemperatureMin = document.getElementById("forecastTemperatureMin");
-const forecastTemperatureMax = document.getElementById("forecastTemperatureMax");
+const forecastTemperatureMin = document.getElementById(
+  "forecastTemperatureMin"
+);
+const forecastTemperatureMax = document.getElementById(
+  "forecastTemperatureMax"
+);
 
 const timeContainer = document.getElementById("time-Container");
 const timeElement = document.createElement("div");
-
 
 const nameElement = document.createElement("div"); //on crée des nouvelles div à l'intérieur des éléments de la page
 const lastUpdateElement = document.createElement("div");
@@ -31,9 +34,6 @@ const forecastWeatherIconElement = document.createElement("div");
 const forecastTemperatureMinElement = document.createElement("div");
 const forecastTemperatureMaxElement = document.createElement("div");
 
-
-
-
 // On utilise var  pour pouvoir accéder à response.
 var response;
 let conditionText;
@@ -42,13 +42,18 @@ let hours;
 let minutes;
 let seconds;
 
-const fetchWeather = async () => {  // on déclare la fonction qui récupère les données sur l'API
+const fetchWeather = async () => {
+  // on déclare la fonction qui récupère les données sur l'API
 
   let input = document.getElementById("inputbox").value; //on récupère la valeur de l'input (nom de ville entré par l'utilisateur)
-  let requestString = `http://api.weatherapi.com/v1/current.json?key=b0e73d7dbcd346fc826145808242711&q=${input}&aqi=no`; //on injecte l'input dans la requête API
+  if (!input) {
+    input = "Paris";
+    console.log(input);
+  }
+  let requestString = `http://api.weatherapi.com/v1/current.json?key=c9ea07bc963e4bf7849141302240412&q=${input}&aqi=no`; //on injecte l'input dans la requête API
 
-  let data = await fetch(requestString);      //on lance l'appel à l'API
-  response = await data.json();               //on transforme les données au format json
+  let data = await fetch(requestString); //on lance l'appel à l'API
+  response = await data.json(); //on transforme les données au format json
 
   nameElement.innerText = `Today in ${response["location"]["name"]}`; //on injecte les données récupérées dans les balises html
   cityname.appendChild(nameElement); //on ajoute la nouvelle div à l'intérieur de la balise html prévue
@@ -73,19 +78,31 @@ const fetchWeather = async () => {  // on déclare la fonction qui récupère le
 
 // Appel à l'API WeatherBit = prévisions des température min. et max.
 const fetchTempForecast = async () => {
-  let input = document.getElementById("inputbox").value; //on récupère la valeur de l'input (nom de ville entré par l'utilisateur) 
-  const response = await fetch(`https://api.weatherbit.io/v2.0/forecast/daily?city=${input}&days=3&key=52c8e3c84ece4734898ad2b0032941c2`);
+  let input = document.getElementById("inputbox").value; //on récupère la valeur de l'input (nom de ville entré par l'utilisateur)
+  if (!input) {
+    input = "Paris";
+    console.log(input);
+  }
+  const response = await fetch(
+    `https://api.weatherbit.io/v2.0/forecast/daily?city=${input}&days=3&key=52c8e3c84ece4734898ad2b0032941c2`
+  );
   let data = await response.json();
   forecastTemperatureMinElement.innerText = `${data.data[1].min_temp} °C`;
   forecastTemperatureMin.appendChild(forecastTemperatureMinElement);
   forecastTemperatureMaxElement.innerText = `${data.data[1].max_temp} °C`;
   forecastTemperatureMax.appendChild(forecastTemperatureMaxElement);
-}
+};
 
 // Appel à l'API WeatherAPI = prévisions text
 const fetchWeatherForecast = async () => {
-  let input = document.getElementById("inputbox").value; //on récupère la valeur de l'input (nom de ville entré par l'utilisateur) 
-  let response = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=3bdc4ada542e4b009b5141513242911&q=${input}&days=2&aqi=no&alerts=no`);
+  let input = document.getElementById("inputbox").value; //on récupère la valeur de l'input (nom de ville entré par l'utilisateur)
+  if (!input) {
+    input = "Paris";
+    console.log(input);
+  }
+  let response = await fetch(
+    `http://api.weatherapi.com/v1/forecast.json?key=c9ea07bc963e4bf7849141302240412&q=${input}&days=2&aqi=no&alerts=no`
+  );
   let data1 = await response.json();
 
   conditionText = `${data1.forecast.forecastday[1].day.condition.text}`;
@@ -95,27 +112,28 @@ const fetchWeatherForecast = async () => {
   forecastWeather.appendChild(forecastWeatherElement);
 
   fetchForecastIcon(conditionText);
-}
+};
 
 const fetchForecastIcon = async (conditionText) => {
   let requestString = `weather_conditions.json`;
   let data2 = await fetch(requestString); //on lance l'appel à l'API
   let responseJson = await data2.json(); //on transforme les données au format json
-  
+
   console.log(conditionText);
 
   // forEach pour injecter l'icone text forecast
   responseJson
     .filter((line) => {
       console.log(line.day, conditionText);
-  
-      return (line.day.toLowerCase()) === (conditionText.toLowerCase())})
+
+      return line.day.toLowerCase() === conditionText.toLowerCase();
+    })
     .forEach((matchedLine) => {
       forecastWeatherIconElement.innerHTML = `<img src="${matchedLine.image}" alt="${matchedLine.day}">`;
       forecastWeatherIcon.appendChild(forecastWeatherIconElement);
       console.log(forecastWeatherIconElement.innerHTML);
     });
-}
+};
 
 // weather-condition-ICONS
 
@@ -136,8 +154,7 @@ const fetchIcons = async () => {
       background.appendChild(backgroundElement);
     });
 
-
-  if (`${response["current"]["temp_c"]}` >= 20) { 
+  if (`${response["current"]["temp_c"]}` >= 20) {
     temperatureIconElement.innerHTML = `<img src= "icons/thermometer-warmer.svg">`; // Temperature hot
     temperatureIcon.appendChild(temperatureIconElement);
   } else {
@@ -149,10 +166,8 @@ const fetchIcons = async () => {
 function fetchAll() {
   fetchWeather();
   fetchWeatherForecast();
-  fetchTempForecast()
+  fetchTempForecast();
 }
-
-
 
 function initTime() {
   //fonction qui récupère la vraie heure et l'affiche à chaque minute
@@ -187,7 +202,6 @@ function incrementSeconds() {
   }
 
   showTime(); // on met à jour l'affichage de l'heure
-  
 }
 
 function showTime() {
@@ -216,6 +230,28 @@ function showTime() {
 initTime();
 setInterval(incrementSeconds, 1000);
 
+// Home Page
+// async function myHome() {
+// let input = "lyon";
+// let requestStringLyon = `http://api.weatherapi.com/v1/current.json?key=b0e73d7dbcd346fc826145808242711&q=${input}&aqi=no`; //on injecte l'input dans la requête API
 
+// let dataLyon = await fetch(requestStringLyon); //on lance l'appel à l'API
+// let responseLyon = await dataLyon.json();
+// weatherElement.innerText = `${responseLyon["current"]["condition"]["text"]}`;
+// weather.appendChild(weatherElement);
+
+// temperatureElement.innerText = `${responseLyon["current"]["temp_c"]} °C`;
+// temperature.appendChild(temperatureElement);
+
+// windElement.innerText = `${responseLyon["current"]["wind_kph"]} km/h`;
+// wind.appendChild(windElement);
+
+// humidityElement.innerText = `${responseLyon["current"]["humidity"]} %`;
+// humidity.appendChild(humidityElement);
+// fetchIcons();
+
+fetchAll();
+// }
+// myHome();
 
 button.addEventListener("click", fetchAll); //on ajoute une addEventListener au bouton : au click, on lance la fonction fetchAll
