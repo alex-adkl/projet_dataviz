@@ -357,7 +357,7 @@ body {
   /* background: url() no-repeat center center/cover;
   background: no-repeat center center/cover; */
   /* height: 75px; pour que l'image occupe toute la hauteur  */
-  color: #333;
+  color: #1f166b;
   overflow: hidden;
 }
 #background {
@@ -370,6 +370,22 @@ body {
   background: url() no-repeat center center/cover;
   background-size: cover;
   background-position: center;
+}
+
+#time-Container {
+  background-color: white; 
+  color: rgb(0, 123, 255); 
+  font-size: 16px; 
+  font-weight: bold; 
+  text-align: center;
+  padding: 10px 15px; 
+  border-radius: 20px; 
+  display: inline-block; 
+  margin: 10px auto; 
+}
+
+#lastupdate {
+  color: white;
 }
 
 .logo-header {
@@ -389,11 +405,11 @@ body {
 }
 
 .logo-header .weather {
-  color: #1e3a8a; /* Bleu foncé */
+  color: #506ec0; /* Bleu foncé */
 }
 
 .logo-header .cast {
-  color: #1d4ed8; /* Bleu plus clair */
+  color: rgb(0, 123, 255); /* Bleu plus clair */
 }
 
 .logo-header .icons {
@@ -462,7 +478,8 @@ button#btn:hover {
   box-shadow: 0 4px 6px rgba(28, 26, 26, 0.1);
 }
 
-#weather {
+#weather,
+#forecastWeather {
   text-align: center;
   color: #ffc107;
 }
@@ -477,7 +494,9 @@ button#btn:hover {
   margin: 0 auto 10px;
 }
 
-#temperature {
+#temperature,
+#forecastTemperatureMin,
+#forecastTemperatureMax {
   color: #0d6efd;
 }
 
@@ -486,7 +505,7 @@ button#btn:hover {
 }
 
 #humidity {
-  color: #6c757d;
+  color: #597b9c;
 }
 
 img#icon {
@@ -504,15 +523,18 @@ img#icon {
 
 
 
-h2 {
-  font-size: 10px;
-
+h3 {
+  font-size: 18 px;
 }
+
+
+
 #forecast-card {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: top;
   gap: 20px;
+
 }
 
 #forecast-card > div {
@@ -525,8 +547,8 @@ h2 {
 }
 
 #forecast-card img {
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   margin-bottom: 10px;
 }
 
@@ -538,14 +560,14 @@ h2 {
   margin-top: 10px;
 }
 
-#forecastWeather .forecastValue {
+#forecastWeather {
   color: #f59e0b; /* Couleur pour "Sunny" ou météo */
 }
 
-#ForecastTemperatureMin .value {
+#ForecastTemperatureMin {
   color: #1d4ed8; /* Couleur pour Température Min */
 }
 
-.forecastTemperatureMax .forecastValue {
+.forecastTemperatureMax {
   color: #dc2626; /* Couleur pour Température Max */
 }
