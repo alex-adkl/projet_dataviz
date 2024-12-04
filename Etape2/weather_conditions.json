@@ -47,6 +47,16 @@
     "image": "icons/rain.svg",
     "background": "images/rain.jpg"
   },
+
+  {
+    "code": 1099,
+    "day": "Patchy rain nearby",
+    "night": "Patchy rain nearby",
+    "icon": 176,
+    "image": "icons/rain.svg",
+    "background": "images/rain.jpg"
+  },
+
   {
     "code": 1066,
     "day": "Patchy snow possible",
