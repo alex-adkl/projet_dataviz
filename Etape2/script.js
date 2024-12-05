@@ -13,6 +13,7 @@ const forecastWeatherIcon = document.getElementById("forecastWeatherIcon");
 const forecastTemperatureMin = document.getElementById("forecastTemperatureMin");
 const forecastTemperatureMax = document.getElementById("forecastTemperatureMax");
 const timeContainer = document.getElementById("time-Container");
+const speakWeatherBtn = document.getElementById("speakWeatherBtn");
 
 
 const nameElement = document.createElement("div");          //on crée des nouvelles div à l'intérieur des éléments de la page
@@ -37,6 +38,8 @@ let conditionText;
 let hours;    //on déclare des variables pour afficher l'heure en temps réel
 let minutes;
 let seconds;
+
+let weatherText = ""; // Texte à lire
 
 const fetchWeather = async () => {           // on déclare la fonction qui récupère les données sur l'API
 
@@ -68,7 +71,18 @@ const fetchWeather = async () => {           // on déclare la fonction qui réc
   humidityElement.innerText = `${response["current"]["humidity"]} %`;
   humidity.appendChild(humidityElement);
 
+  // Créer le texte à lire avec ResponsiveVoice
+  weatherText = `Voici la météo pour ${data.location.name}. Le temps est ${data.current.condition.text}. 
+                 La température est de ${data.current.temp_c} degrés Celsius, avec un vent soufflant à ${data.current.wind_kph} kilomètres par heure 
+                 et une humidité de ${data.current.humidity} pourcent.`;
+
   fetchIcons(); //on appelle la fonction fetchIcons, qui va filtrer et injecter les icônes dans le html
+};
+
+// Fonction pour lire les données météo à haute voix
+const speakWeather = () => {
+  // Utilisation de ResponsiveVoice pour lire le texte météo
+  responsiveVoice.speak(weatherText, "French Female");
 };
 
 // Appel à l'API WeatherBit = prévisions des température min. et max. J+1
@@ -217,3 +231,6 @@ setInterval(incrementSeconds, 1000); //fonction qui met à jour les secondes, mi
 fetchAll(); //on lance tous les appels aux API
 
 button.addEventListener("click", fetchAll); //on ajoute une addEventListener au bouton : au click, on lance la fonction fetchAll
+speakWeatherBtn.addEventListener("click", speakWeather);
+
+//installer express axios cors
